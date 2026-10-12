@@ -1,0 +1,14 @@
+<!doctype html><html lang="fr"><head><title>Admin · Mllefeuillantine</title><meta name="robots" content="noindex"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"></head><body>
+<main class="wrap sec"><h1>Espace créatrice</h1>
+<form id="login" class="form narrow" style="margin:0"><label>E-mail<input type="email" id="em" required autocomplete="username"></label><label>Mot de passe<input type="password" id="pw" required autocomplete="current-password"></label><button class="btn" type="submit">Se connecter</button><p class="msg err" id="lerr"></p></form>
+<div id="app" class="adm" hidden>
+<p class="small">Connectée : <b id="who"></b>. Vos modifications sont en ligne immédiatement pour tous les visiteurs.</p>
+<div class="row"><button class="btn" id="new">+ Nouvelle pâtisserie</button><button class="btn ghost" id="seed" hidden>Importer le catalogue de départ</button><button class="btn ghost" id="out">Se déconnecter</button></div>
+<div style="overflow-x:auto"><table id="tb"></table></div>
+<form id="ed" class="form" hidden><h2 id="et"></h2><label>Nom<input name="nom" required></label><label>Description / composition<textarea name="desc" rows="2"></textarea></label>
+<label>Catégorie<select name="cat"></select></label>
+<label>Photo (nom de fichier dans images/ ou envoi d'une photo)<input name="img" placeholder="images/ma-patisserie.jpg"><input type="file" id="file" accept="image/*"></label>
+<label>Tailles et prix (une par ligne : libellé ; prix)<textarea name="tailles" rows="4" placeholder="4/6 parts ; 25&#10;8/10 parts ; 42"></textarea></label>
+<label class="radio"><input type="checkbox" name="visible"> Afficher sur le site</label><label class="radio"><input type="checkbox" name="epuise"> Victime de son succès (affichée, non commandable)</label><label class="radio"><input type="checkbox" name="offre"> Offre du moment (mise en tête)</label>
+<div class="row"><button class="btn" type="submit">Enregistrer</button><button class="btn ghost" type="button" id="cx">Fermer</button></div></form>
+</div></main><script src="js/config.js"></script><script src="js/products.js"></script><script type="module" src="js/admin.js"></script></body></html>

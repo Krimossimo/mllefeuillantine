@@ -1,0 +1,10 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+import { getFirestore, collection, getDocs, doc, setDoc, deleteDoc } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore.js';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+const app = initializeApp(FIREBASE_CONFIG), db = getFirestore(app), auth = getAuth(app);
+export const fetchProduits = async () => (await getDocs(collection(db, 'produits'))).docs.map(d => d.data()).sort((a, b) => (a.ordre ?? 0) - (b.ordre ?? 0));
+export const saveProduit = p => setDoc(doc(db, 'produits', p.id), p);
+export const removeProduit = id => deleteDoc(doc(db, 'produits', id));
+export const login = (e, p) => signInWithEmailAndPassword(auth, e, p);
+export const logout = () => signOut(auth);
+export const watch = cb => onAuthStateChanged(auth, cb);
